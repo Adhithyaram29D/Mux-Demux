@@ -52,14 +52,45 @@ Y0=s1′s0′I <br>
 
 
 ## Program:
-
-
+## 1.Multiplexer
+```
+module mux(I0,I1,I2,I3,s1,s0,y);
+input I0,I1,I2,I3,s0,s1;
+output y;
+wire p,q,r,s,s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(p,s1d,s0d,I0);
+and(q,s1d,s0,I1);
+and(r,s1,s0d,I2);
+and(s,s1,s0,I3);
+or(y,p,q,r,s);
+endmodule 
+```
+## 2.Demultiplexer
+```
+module demux(I,s1,s0,y3,y2,y1,y0);
+input I,s1,s0;
+output y3,y2,y1,y0;
+wire s1d,s0d;
+not(s1d,s1);
+not(s0d,s0);
+and(y3,s1,s0,I);
+and(y2,s1,s0d,I);
+and(y1,s1d,s0,I);
+and(y0,s1d,s0d,I);
+endmodule 
+```
 ## RTL Schematic:
-
-
-
-
+## 1.Multiplexer
+![multi rtl](https://github.com/Adhithyaram29D/Mux-Demux/assets/119393540/1becea62-f555-4d75-b290-079edd830a99)
+## 2.DeMultiplexer
+![de multi rtl](https://github.com/Adhithyaram29D/Mux-Demux/assets/119393540/628d55f8-79f9-4328-b6a4-26c2c698083c)
 ## Timing Diagram:
+## 1.Multiplexer
+![multi timing](https://github.com/Adhithyaram29D/Mux-Demux/assets/119393540/40dde9a0-8a39-4531-991f-18996a5065ef)
+## 2.DeMultiplexer
+![de mutli timing](https://github.com/Adhithyaram29D/Mux-Demux/assets/119393540/3f2dc88e-dfd0-4286-b9ad-201974a37729)
 
 
 
